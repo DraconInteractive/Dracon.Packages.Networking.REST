@@ -1,0 +1,27 @@
+{
+    "name": "com.dracon.networking_rest",
+    "displayName": "Dracon REST Tools",
+    "version": "0.0.1",
+    "unity": "2019.1",
+    "description": "Tools for easy REST implementation",
+    "keywords": [
+      "networking",
+      "REST",
+      "API",
+      "unity"
+    ],
+    "samples": [
+      {
+        "displayName": "Placeholder",
+        "description": "Placeholder sample for when I actually have extensible content to add",
+        "path": "Samples~/DialogueStuff"
+      }
+    ],
+    "author": {
+      "name": "Dracon Interactive",
+      "email": "draconinteractive@gmail.com",
+      "url": "http://www.draconinteractive.com.au"
+    },
+    "category": "Unity"
+  }
+  
