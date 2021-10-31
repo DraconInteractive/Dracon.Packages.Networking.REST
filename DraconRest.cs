@@ -20,10 +20,12 @@ public class DraconRest
     string AuthHeader => BearerTokenAuthHeaderPrefix + AuthToken;
 
     bool useAuthToken;
+    bool useQueryParameter;
 
-    public DraconRest (string _baseEndPoint, string _queryParameter, bool _useAuthToken = false, string _authHeaderPrefix = "")
+    public DraconRest(string _baseEndPoint, bool _useQueryParameter, string _queryParameter = "", bool _useAuthToken = false, string _authHeaderPrefix = "")
     {
         BaseEndPoint = _baseEndPoint;
+        useQueryParameter = _useQueryParameter;
         APIQueryParameter = _queryParameter;
         useAuthToken = _useAuthToken;
         BearerTokenAuthHeaderPrefix = _authHeaderPrefix;
@@ -75,10 +77,13 @@ public class DraconRest
     {
         UriBuilder uriBuilder = new UriBuilder(BaseEndPoint);
         uriBuilder.Path = path;
-        uriBuilder.Query = APIQueryParameter;
-        if (additionalQueryParameters != null && additionalQueryParameters.Length > 0)
+        if (useQueryParameter)
         {
-            uriBuilder.Query += "&" + additionalQueryParameters.Join("&");
+            uriBuilder.Query = APIQueryParameter;
+            if (additionalQueryParameters != null && additionalQueryParameters.Length > 0)
+            {
+                uriBuilder.Query += "&" + additionalQueryParameters.Join("&");
+            }
         }
         return uriBuilder;
     }
