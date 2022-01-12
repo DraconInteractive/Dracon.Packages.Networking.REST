@@ -118,7 +118,7 @@ public class DraconRest
         }
     }
 
-    private async Task<RESTRequestResponse> PerformRequest(HttpWebRequest request)
+    public async Task<RESTRequestResponse> PerformRequest(HttpWebRequest request)
     {
         var content = new MemoryStream();
 
@@ -169,7 +169,7 @@ public class DraconRest
         return requestResponse;
     }
 
-    private async Task<RESTRequestResponse> GetAsync(string path, string[] additionalQueryParameters)
+    public async Task<RESTRequestResponse> GetAsync(string path, string[] additionalQueryParameters)
     {
         UriBuilder uriBuilder;
         HttpWebRequest webReq;
@@ -205,7 +205,7 @@ public class DraconRest
         return await PerformRequest(webReq);
     }
 
-    private async Task<RESTRequestResponse> PostJSONAsync(string path, string jsonString)
+    public async Task<RESTRequestResponse> PostJSONAsync(string path, string jsonString)
     {
         UriBuilder uriBuilder;
         HttpWebRequest webReq;
